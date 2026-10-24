@@ -24,12 +24,14 @@ The script reports the operating system, UFW status, listening sockets, and Jell
 
 ## Validation
 
-The script passed a Bash syntax check. Run it on the Ubuntu Server you intend to document; its output describes the machine where it is run.
+The script passed a Bash syntax check and ran successfully on a GitHub-hosted Ubuntu 24.04.5 LTS runner ([workflow run](https://github.com/Json8913/ubuntu-homelab-security/actions/runs/40097668822)). This confirms the script runs in Ubuntu; it does not describe a home server. Run it on an Ubuntu VM or server for host-specific findings.
 
 ## Documentation plan
 
 Record the server version, network diagram, firewall rules, service exposure, update process, backup approach, and lessons learned. Do not publish public IP addresses, hostnames, credentials, or private logs.
 
-## Screenshots
+## Hosted runner demo
 
-Add redacted screenshots of the local dashboard and firewall status after the lab is configured.
+![Read-only baseline report from a GitHub-hosted Ubuntu runner](screenshots/ubuntu-baseline-hosted-runner.png)
+
+This report is from GitHub Actions, not a home server. It shows the runner's firewall as inactive and Jellyfin as not active or not installed. Network addresses have been redacted.

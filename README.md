@@ -22,6 +22,10 @@ Run:
 
 The script reports the operating system, UFW status, listening sockets, and Jellyfin service state. It does not change system configuration. Its output can contain host and network details; redact it before sharing.
 
+## Validation
+
+The script passed a Bash syntax check. Run it on the Ubuntu Server you intend to document; its output describes the machine where it is run.
+
 ## Documentation plan
 
 Record the server version, network diagram, firewall rules, service exposure, update process, backup approach, and lessons learned. Do not publish public IP addresses, hostnames, credentials, or private logs.

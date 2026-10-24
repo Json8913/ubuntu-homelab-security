@@ -1,0 +1,22 @@
+name: Ubuntu baseline demo
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "baseline_check.sh"
+      - ".github/workflows/ubuntu-baseline-demo.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  baseline:
+    name: Read-only baseline check
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Run baseline script
+        run: bash baseline_check.sh

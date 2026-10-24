@@ -17,7 +17,9 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
+      - name: Check shell syntax
+        run: bash -n baseline_check.sh
       - name: Run and redact baseline output
         run: |
           sudo bash baseline_check.sh 2>&1 | sed -E \

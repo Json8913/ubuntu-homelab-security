@@ -1,3 +1,16 @@
 *.log
 *.conf.local
 .env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.pcap
+*.pcapng
+*.qcow2
+*.vdi
+*.vmdk
+*.ova
+*.iso

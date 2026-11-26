@@ -5,7 +5,17 @@ set -u
 
 echo "== Host =="
 hostname
-. /etc/os-release && echo "$PRETTY_NAME"
+if [ -r /etc/os-release ]; then
+  . /etc/os-release
+  echo "${PRETTY_NAME:-Unknown Linux distribution}"
+else
+  echo "Operating system details are unavailable"
+fi
+if [ "$(id -u)" -eq 0 ]; then
+  echo "Privilege: running as root"
+else
+  echo "Privilege: running as a regular user; some process details may be hidden"
+fi
 
 echo
 echo "== Firewall =="
@@ -19,6 +29,14 @@ echo
 echo "== Listening sockets =="
 if command -v ss >/dev/null 2>&1; then
   ss -lntup
+  wildcard_listeners="$(ss -H -lntu 2>/dev/null | awk '$4 ~ /^\*:/ || $4 ~ /^0\.0\.0\.0:/ || $4 ~ /^\[::\]:/ || $4 ~ /^:::/ { print $4 }')"
+  if [ -n "$wildcard_listeners" ]; then
+    echo
+    echo "Review wildcard-bound listeners; they may accept connections on more than one interface:"
+    printf '%s\n' "$wildcard_listeners" | sort -u
+  else
+    echo "No wildcard-bound TCP or UDP listeners were detected"
+  fi
 else
   echo "ss is not available"
 fi

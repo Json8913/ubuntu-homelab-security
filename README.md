@@ -2,7 +2,7 @@
 
 A growing set of notes for documenting a small Ubuntu Server home lab running Jellyfin, with a read-only script for checking basic host and service exposure indicators.
 
-**Stage:** Initial notes and read-only check. This repository does not claim that a server has been deployed or independently assessed.
+**Stage:** Initial notes and read-only check.
 
 ## Baseline checklist
 
@@ -20,7 +20,9 @@ Run:
 
     bash baseline_check.sh
 
-The script reports the operating system, UFW status, listening sockets, and Jellyfin service state. It does not change system configuration. Its output can contain host and network details; redact it before sharing.
+The script reports the operating system, current privilege level, UFW status, listening sockets, and Jellyfin service state. It also flags wildcard-bound TCP or UDP listeners for review. A wildcard bind can accept connections on multiple interfaces, but it does not prove that a service is reachable from the internet; check the host firewall and network edge separately.
+
+The script does not change system configuration. Its output can contain host and network details; redact it before sharing. Run with appropriate privileges if process details are needed.
 
 ## Validation
 

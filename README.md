@@ -2,6 +2,8 @@
 
 A growing set of notes for documenting a small Ubuntu Server home lab running Jellyfin, with a read-only script for checking basic host and service exposure indicators.
 
+**Author:** Jason Santos Ritchie
+
 **Stage:** Initial notes and read-only check.
 
 ## Baseline checklist

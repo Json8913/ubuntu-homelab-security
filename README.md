@@ -1,5 +1,7 @@
 # Ubuntu Server Home Lab Security
 
+[![Checks](https://github.com/Json8913/ubuntu-homelab-security/actions/workflows/ubuntu-baseline-demo.yml/badge.svg?branch=main)](https://github.com/Json8913/ubuntu-homelab-security/actions/workflows/ubuntu-baseline-demo.yml)
+
 A growing set of notes for documenting a small Ubuntu Server home lab running Jellyfin, with a read-only script for checking basic host and service exposure indicators.
 
 **Author:** Jason Santos Ritchie

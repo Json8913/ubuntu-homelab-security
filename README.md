@@ -16,6 +16,14 @@ A growing set of notes for documenting a small Ubuntu Server home lab running Je
 - Back up configuration and media metadata, then document a restore procedure.
 - Review listening ports and service logs after configuration changes.
 
+## Desktop interface
+
+On the Ubuntu host, run:
+
+    python3 gui.py
+
+Select **Run read-only check** to display the same local report in a window. The interface runs `baseline_check.sh`; it does not change host settings. If Tkinter is missing, install the `python3-tk` package for your distribution.
+
 ## Read-only check
 
 Run:
